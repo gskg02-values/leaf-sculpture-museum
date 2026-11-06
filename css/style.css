@@ -7,24 +7,85 @@
 
 body {
     background-color: #f2f1ed; /* Wall plaster */
-    color: #C63614;
+    color: #009600;
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
 }
 
 
-/* Hero Image Section */
 
-.hero-image {
+/* Hero Section Background */
+.hero-section {
+    position: relative;
     width: 100%;
-    height: 80vh; /* Takes up 60% of the screen height on desktop */
-    background-image: url('../assets/images/hero.jpg'); /* Replace with your actual image path */
-    background-size: cover; /* Ensures the image fills the space without distortion */
-    background-position: center; /* Keeps the focal point centered */
-    background-repeat: no-repeat;
-    display: block;
-    border-bottom: 1px solid #3E2E00; /* Subtle grounding line matching your frames */
+    min-height: 100vh; /* Gives it a cinematic, wide-screen height */
+    
+    /* ADD YOUR RAW GARDEN BACKGROUND PHOTO HERE */
+    background-image: url('../assets/images/garden-background-raw.jpg'); 
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #3E2E00;
+    padding: 2rem 5%;
 }
+
+/* The Floating Text Plaque */
+.hero-text-plaque {
+    background-color: rgba(250, 246, 235, 0.85); /* Semi-transparent warm archival paper */
+    padding: 3.5rem 4rem;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(62, 46, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px); /* Gives a very subtle frosted effect over the garden */
+}
+
+/* Hero Typography */
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #6C0000; /* Deep dark red for an authoritative, vintage museum feel */
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: #006400;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: #006400;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-divider {
+    width: 80px;
+    height: 1px;
+    background-color: rgba(62, 46, 0, 0.3);
+    margin: 0 auto 2rem auto;
+}
+
+.hero-esd {
+    font-size: 0.85rem;
+    color: #006400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+}
+
+
 
 
 
@@ -54,7 +115,7 @@ h1, h2, h3 {
 .subtitle {
     font-size: 1.2rem;
     font-style: italic;
-    color: #555;
+    color: #009600;
     margin-bottom: 2rem;
 }
 
@@ -202,7 +263,7 @@ h1, h2, h3 {
     text-align: center;
     
     /* TEXT COLOR CONTROL */
-    color: #2E653D; /* Currently set to your deep bronze/gold. Change this hex code to alter the text color. */
+    color: #006400; /* Currently set to your deep bronze/gold. Change this hex code to alter the text color. */
 
 
 /* New spacing to make room for the line */
@@ -396,6 +457,21 @@ h1, h2, h3 {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+
+
+.hero-section {
+        min-height: 50vh;
+    }
+    
+    .hero-text-plaque {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
 
 
 .inquiry-title {
