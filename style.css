@@ -13,19 +13,77 @@ body {
 }
 
 
-/* Hero Image Section */
+/* Hero Section Background */
 
-.hero-image {
+.hero-section {
+    position: relative;
     width: 100%;
-    height: 80vh; /* Takes up 60% of the screen height on desktop */
-    background-image: url('../assets/images/hero.jpg'); /* Replace with your actual image path */
-    background-size: cover; /* Ensures the image fills the space without distortion */
-    background-position: center; /* Keeps the focal point centered */
-    background-repeat: no-repeat;
-    display: block;
-    border-bottom: 1px solid #3E2E00; /* Subtle grounding line matching your frames */
+    min-height: 80vh; 
+    /* IMPORTANT: Make sure this is the correct name of your garden photo! */
+    background-image: url('../assets/images/garden-background-raw.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #3E2E00;
+    padding: 2rem 5%;
 }
 
+/* The Floating Text Plaque */
+
+.hero-text-plaque {
+    background-color: rgba(250, 246, 235, 0.85); 
+    padding: 3.5rem 4rem;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(62, 46, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px); 
+}
+
+/* Hero Typography */
+
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #6C0000; 
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: #006400;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: #006400;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-divider {
+    width: 80px;
+    height: 1px;
+    background-color: rgba(62, 46, 0, 0.3);
+    margin: 0 auto 2rem auto;
+}
+
+.hero-esd {
+    font-size: 0.85rem;
+    color: #006400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+}
 
 
 
@@ -395,35 +453,59 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
-/* Responsive adjustments */
 
 
 /* Responsive adjustments */
-
 @media (max-width: 768px) {
 
-    /* 1. Safety net: Prevents the page from ever scrolling horizontally */
-
+    /* 1. Safety net: Prevents horizontal scrolling */
     body {
         overflow-x: hidden;
     }
 
-    /* 2. Fixes the overflowing line divider creating the white space bug */
+    /* 2. Keeps the section dividers inside the mobile screen width */
     .header-divider {
         width: 80%; 
     }
 
-/* 3. Forces the hero image to show full width without cropping (16:9 ratio) */
-
-    .hero-image {
-        height: 0; /* Set height to 0 so the padding dictates the size */
-        padding-top: 56.25%; /* This percentage is the exact math for a 1920x1080 ratio */
-        background-size: contain; /* Ensures the image fits perfectly inside the box */
+    /* 3. Option B: Full uncropped 1920x1080 image on top, plaque stacked below */
+    .hero-section {
+        min-height: auto;
+        background-color: #f2f1ed; /* Matches your museum wall plaster */
+        background-size: 100% auto; /* Shows 100% width of the 1920x1080 image without cropping */
+        background-repeat: no-repeat;
         background-position: top center;
+        
+        /* 56.25vw reserves the exact height of the 16:9 image at the top, 
+           pushing the text plaque cleanly underneath it */
+        padding: calc(56.25vw + 1.5rem) 4% 2.5rem 4%; 
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    .hero-text-plaque {
+        width: 100%;
+        padding: 2.2rem 1.25rem;
+        background-color: #faf6eb; /* Solid warm archival paper below the image */
+        backdrop-filter: none;
+    }
 
-    /* 4. Typography Adjustments */
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-quote {
+        font-size: 1.15rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    /* 4. Museum Header & Manifesto Mobile Adjustments */
     .title {
         font-size: 2rem;
     }
@@ -440,7 +522,7 @@ h1, h2, h3 {
         text-align: left; /* Prevents awkward word gaps on small screens */
     }
 
-    /* 5. Gallery Grid Adjustments */
+    /* 5. Gallery Grid Mobile Adjustments */
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 4rem;
@@ -448,18 +530,9 @@ h1, h2, h3 {
     }
 
     .image-wrapper.frame {
-        padding: 6% 5%; /* Expands the aperture to show more of the photograph */
+        padding: 5%;
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
