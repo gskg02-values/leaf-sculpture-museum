@@ -470,13 +470,27 @@ h1, h2, h3 {
 
     /* Adjusts the hero section for mobile screens */
 
+/* Adjusts the hero section to show the full uncropped image on mobile */
+
     .hero-section {
-        min-height: 60vh; 
-        background-position: center center;
+        min-height: auto; 
+        
+        /* This forces the full 1920x1080 width without ANY cropping */
+        background-size: 100% auto; 
+        background-repeat: no-repeat;
+        background-position: top center;
+        
+        /* Pushes the text plaque down so it sits right beneath the image, just like your old project */
+        padding-top: 58vw; 
+        padding-bottom: 2rem;
+        
+        /* Ensures the plaque stays centered horizontally */
+        flex-direction: column; 
     }
     
     .hero-text-plaque {
-        width: 90%;
+        width: 92%;
+        margin: 0 auto;
         padding: 2.5rem 1.2rem;
     }
 
