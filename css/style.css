@@ -329,7 +329,7 @@ h1, h2, h3 {
     width: 100%;
     aspect-ratio: 1 / 1;
     background-color: #3E2E00; /* Archival mat board */
-    padding: 12% 11%;
+    padding: 5% 6%;
     position: relative;
     box-sizing: border-box;
 
@@ -461,7 +461,7 @@ h1, h2, h3 {
 
 
 .hero-section {
-        min-height: 50vh;
+        min-height: 40vh;
     }
     
     .hero-text-plaque {
@@ -499,9 +499,11 @@ h1, h2, h3 {
         gap: 4rem;
         padding: 0 4% 6rem;
     }
+
     .image-wrapper.frame {
-        padding: 10%;
+        padding: 5%;
     }
+
     .title {
         font-size: 2rem;
     }
