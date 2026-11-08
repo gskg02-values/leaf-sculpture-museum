@@ -474,9 +474,10 @@ h1, h2, h3 {
 
  /* Adjusts the hero section to wrap behind the plaque */
     .hero-section {
-        min-height: 100vh;
+        min-height: 80vh;
         height: auto; /* Forces the background to grow as tall as the text needs */
-        background-size: cover;
+        width:100%
+	background-size: cover;
         background-position: center;
         padding: 6rem 5%; /* Adds a generous green buffer above and below the plaque */
         display: flex;
