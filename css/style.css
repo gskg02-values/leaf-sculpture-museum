@@ -474,12 +474,15 @@ h1, h2, h3 {
 
  /* Adjusts the hero section to wrap behind the plaque */
     .hero-section {
-        min-height: 85vh; /* Makes the background tall enough to hold the text */
-        background-size: cover; /* Zooms in to fill the space behind the plaque */
+        min-height: 100vh;
+        height: auto; /* Forces the background to grow as tall as the text needs */
+        background-size: cover;
         background-position: center;
-        padding: 3rem 5%; /* Removes the code that pushed the text down */
+        padding: 6rem 5%; /* Adds a generous green buffer above and below the plaque */
         display: flex;
         align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
     }
     
     .hero-text-plaque {
