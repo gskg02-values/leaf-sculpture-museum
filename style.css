@@ -91,7 +91,7 @@ body {
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    colour: #908652;
+    color: #908652;
 }
 
 /* Header Section */
@@ -470,7 +470,7 @@ h1, h2, h3 {
 
     /* 3. Option B: Full uncropped 1920x1080 image on top, plaque stacked below */
     .hero-section {
-        min-height: auto;
+        min-height:0;
         background-color: #f2f1ed; /* Matches your museum wall plaster */
         background-size: 100% auto; /* Shows 100% width of the 1920x1080 image without cropping */
         background-repeat: no-repeat;
@@ -483,6 +483,8 @@ h1, h2, h3 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
+
     }
 
     .hero-text-plaque {
