@@ -61,7 +61,8 @@ h1, h2, h3 {
 .header-divider {
     border: none;
     border-top: 1px solid #dcd8d0; 
-    width: 600px; 
+    width: 100%; 
+    max-width: 600px; 
     margin: 0 auto 3rem auto; 
 }
 
@@ -395,14 +396,40 @@ h1, h2, h3 {
 }
 
 /* Responsive adjustments */
+
+
+/* Responsive adjustments */
+
 @media (max-width: 768px) {
 
+    /* 1. Safety net: Prevents the page from ever scrolling horizontally */
 
-.inquiry-title {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* 2. Fixes the overflowing line divider creating the white space bug */
+    .header-divider {
+        width: 80%; 
+    }
+
+    /* 3. Forces the hero image to show full width without cropping (16:9 ratio) */
+    .hero-image {
+        height: 56.25vw; /* Exact math for a 1920x1080 image to scale perfectly */
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+
+    /* 4. Typography Adjustments */
+    .title {
+        font-size: 2rem;
+    }
+
+    .inquiry-title {
         font-size: 1.6rem;
     }
     
-/* Add this inside your existing @media block */
     .museum-plaque {
         padding: 3rem 6%;
     }
@@ -411,34 +438,39 @@ h1, h2, h3 {
         text-align: left; /* Prevents awkward word gaps on small screens */
     }
 
-
-
-.hero-image {
-        height: 40vh; /* Shorter height for mobile screens */
-    }
-
-
-.gallery-grid {
+    /* 5. Gallery Grid Adjustments */
+    .gallery-grid {
         grid-template-columns: 1fr;
         gap: 4rem;
         padding: 0 4% 6rem;
     }
+
     .image-wrapper.frame {
-        padding: 10%;
+        padding: 6% 5%; /* Expands the aperture to show more of the photograph */
     }
-    .title {
-        font-size: 2rem;
-    }
-
-
-/* 1. Safety net: Prevents the page from ever scrolling horizontally */
-    body {
-        overflow-x: hidden;
-    }
-
-    /* 2. Fixes the overflowing line divider */
-    .header-divider {
-        width: 80%; /* Changes it from 600px to a flexible width */
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
