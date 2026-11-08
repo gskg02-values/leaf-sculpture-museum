@@ -461,19 +461,19 @@ h1, h2, h3 {
 
 
 .hero-section {
-        min-height: 50vh; /* Reduced from 50vh to show more width of the photo */
+        min-height: 40vh; /* Reduced from 50vh to show more width of the photo */
         background-position: center center; 
         /* TIP: If the best part of your blurred garden is on the left, change the above line to: background-position: left center; */
     }
     
     .hero-text-plaque {
-        padding: 2rem 1rem;
-        width: 75%; /* Ensures the plaque doesn't push the screen width outward */
+        padding: 2.5rem 1.2rem;
+        width: 100%; /* Ensures the plaque doesn't push the screen width outward */
     }
 
 
     .hero-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
 
 
