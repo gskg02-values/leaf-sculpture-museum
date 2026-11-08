@@ -1,0 +1,478 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f1ed; /* Wall plaster */
+    color: #009600;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+
+/* Hero Image Section */
+
+.hero-image {
+    width: 100%;
+    height: 80vh; /* Takes up 60% of the screen height on desktop */
+    background-image: url('../assets/images/hero.jpg'); /* Replace with your actual image path */
+    background-size: cover; /* Ensures the image fills the space without distortion */
+    background-position: center; /* Keeps the focal point centered */
+    background-repeat: no-repeat;
+    display: block;
+    border-bottom: 1px solid #3E2E00; /* Subtle grounding line matching your frames */
+}
+
+
+
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    colour: #908652;
+}
+
+/* Header Section */
+.museum-header {
+    text-align: center;
+    padding: 6rem 5% 4rem; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 3rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #009600;
+    margin-bottom: 2rem;
+}
+
+.header-divider {
+    border: none;
+    border-top: 1px solid #dcd8d0; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto 3rem auto; 
+}
+
+.why-this-space h3 {
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: #A26900;
+}
+
+.why-this-space p {
+    font-size: 1.0rem;
+    color: #861E00;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+}
+
+.why-this-space p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* Artistic Inquiry Section */
+.art-inquiry {
+    text-align: center;
+    padding: 2rem 5% 6rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.inquiry-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    color: #009600; /* Deep bronze to tie into the theme */
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+/* Image container with a subtle physical presence */
+.inquiry-image-wrapper {
+    width: 100%;
+    max-width: 700px; /* Gives the image a wide, cinematic aspect */
+    margin: 0 auto 3.5rem auto;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border: 1px solid #dcd8d0;
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.04);
+}
+
+.inquiry-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Typography for the inquiry statements */
+.inquiry-bold {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.15em;
+}
+
+.inquiry-regular {
+    font-size: 1.05rem;
+    color: #4a4a4a;
+    margin-top: 2.5rem;
+    font-style: italic;
+    font-family: 'Playfair Display', Georgia, serif; /* Gives the final call-to-action an elegant finish */
+}
+
+
+
+/* Floating Archival Plaque Container */
+.manifesto-wrapper {
+    padding: 0 5%;
+    margin-bottom: 6rem;
+}
+
+.museum-plaque {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto 5rem auto; /* 5rem adds a generous physical gap between each hanging plaque */
+    background-color: #EFE4DA; /* Archival paper color matching your mat boards */
+    padding: 4.5rem 10%;
+    
+    /* Physical depth lifting the thick paper off the plaster wall */
+    box-shadow: 
+        8px 12px 20px rgba(0, 0, 0, 0.06), 
+        16px 28px 45px rgba(0, 0, 0, 0.04);
+        
+    /* Crisp outer paper cut edge */
+    border: 1px solid #e8e6df;
+}
+
+
+/* Removes the extra margin from the Mission plaque so the gallery begins naturally */
+.museum-plaque:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* Elegant engraved inner line for a scroll/document feel */
+.museum-plaque::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(62, 46, 0, 0.15); /* Faint bronze ink border */
+    pointer-events: none;
+}
+
+/* Plaque Typography */
+.manifesto-block {
+    margin-bottom: 3.5rem;
+}
+
+.manifesto-block:last-child {
+    margin-bottom: 0;
+}
+
+
+.manifesto-block h3 {
+    font-family: 'Playfair Display', Georgia, serif; /* Applies the vintage serif font */
+    font-weight: 600; /* Makes the text bold and heavy */
+    font-size: 2.3rem; /* Slightly larger to balance the heavier weight */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    
+    /* TEXT COLOR CONTROL */
+    color: #2E653D; /* Currently set to your deep bronze/gold. Change this hex code to alter the text color. */
+
+
+/* New spacing to make room for the line */
+    position: relative;
+    padding-bottom: 1rem; /* Space between the text and the divider */
+    margin-bottom: 2rem; /* Space between the divider and the paragraph below */
+
+
+}
+
+
+
+/* The subtle divider line itself */
+.manifesto-block h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Keeps the line perfectly centered */
+    width: 150px; /* Length of the short divider */
+    height: 1px; /* Thickness of the line */
+    background-color: rgba(62, 46, 0, 0.2); /* Faded bronze to match the text subtly */
+
+}
+
+
+
+
+.manifesto-block p {
+    font-size: 1.05rem;
+    color: #855E36; 
+    margin-bottom: 1.25rem;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.manifesto-block p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+
+/* Gallery Grid */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 360px));
+    gap: 5rem 3.5rem;
+    padding: 0 5% 8rem;
+    justify-content: center;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 1. Outer Frame with Deep Bronze Wall Lip */
+
+.image-wrapper.frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #3E2E00; /* Archival mat board */
+    padding: 12% 11%;
+    position: relative;
+    box-sizing: border-box;
+
+    /* Deep Bronze/Brown outer moulding */
+    border: 4.5px solid #080808;
+
+    /* Directional 3D wall shadow casting down and right */
+    box-shadow: 
+        10px 14px 20px rgba(0, 0, 0, 0.26),
+        16px 24px 36px rgba(0, 0, 0, 0.16);
+
+    margin-bottom: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Warm Gold slanted inner wood rim */
+
+.image-wrapper.frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    
+    /* 3D Gold Bevel: Dark bronze shadows on top/left, bright gold catches on bottom/right */
+    border-top: 5px solid #6a5218;
+    border-left: 5px solid #82651e;
+    border-right: 5px solid #e6c883;
+    border-bottom: 5px solid #f5dc9f;
+    
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-item:hover .image-wrapper.frame {
+    transform: translateY(-4px);
+    box-shadow: 
+        12px 18px 26px rgba(0, 0, 0, 0.30),
+        20px 30px 44px rgba(0, 0, 0, 0.18);
+}
+
+/* 2. Photo Aperture (Slightly taller to preserve image proportions) */
+.art-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.art-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 3. The 45° Cut Mat Bevel & Inner Shadow (Champagne/Gold Core) */
+
+.art-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    /* Champagne Core Bevel: shadowed gold on top/left, lit champagne on bottom/right */
+    border-top: 5px solid #8a7853;
+    border-left: 5px solid #9c8961;
+    border-right: 5px solid #dfcc9f;
+    border-bottom: 5px solid #d4c194;
+
+    /* Depth layers */
+    box-shadow: 
+        inset 4px 4px 6px rgba(0, 0, 0, 0.45),
+        inset -1px -1px 2px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(0, 0, 0, 0.22);
+}
+
+
+/* 4. Frame Caption */
+.caption {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: #2b2826;
+    margin-top: 0.4rem;
+    font-weight: 400;
+}
+
+/* Footer Section */
+.museum-footer {
+    text-align: center;
+    padding: 6rem 5% 5rem;
+    background-color: #1a1a1a; 
+    color: #ffffff; 
+    width: 100%;
+}
+
+.quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #aaaaaa;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+
+    /* 1. Safety net: Prevents the page from ever scrolling horizontally */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* 2. Fixes the overflowing line divider creating the white space bug */
+    .header-divider {
+        width: 80%; 
+    }
+
+/* 3. Forces the hero image to show full width without cropping (16:9 ratio) */
+
+    .hero-image {
+        height: 0; /* Set height to 0 so the padding dictates the size */
+        padding-top: 56.25%; /* This percentage is the exact math for a 1920x1080 ratio */
+        background-size: contain; /* Ensures the image fits perfectly inside the box */
+        background-position: top center;
+    }
+
+
+    /* 4. Typography Adjustments */
+    .title {
+        font-size: 2rem;
+    }
+
+    .inquiry-title {
+        font-size: 1.6rem;
+    }
+    
+    .museum-plaque {
+        padding: 3rem 6%;
+    }
+    
+    .manifesto-block p {
+        text-align: left; /* Prevents awkward word gaps on small screens */
+    }
+
+    /* 5. Gallery Grid Adjustments */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 0 4% 6rem;
+    }
+
+    .image-wrapper.frame {
+        padding: 6% 5%; /* Expands the aperture to show more of the photograph */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
