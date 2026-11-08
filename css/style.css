@@ -13,19 +13,77 @@ body {
 }
 
 
-/* Hero Image Section */
+/* Hero Section Background */
 
-.hero-image {
+.hero-section {
+    position: relative;
     width: 100%;
-    height: 80vh; /* Takes up 60% of the screen height on desktop */
-    background-image: url('../assets/images/hero.jpg'); /* Replace with your actual image path */
-    background-size: cover; /* Ensures the image fills the space without distortion */
-    background-position: center; /* Keeps the focal point centered */
-    background-repeat: no-repeat;
-    display: block;
-    border-bottom: 1px solid #3E2E00; /* Subtle grounding line matching your frames */
+    min-height: 80vh; 
+    /* IMPORTANT: Make sure this is the correct name of your garden photo! */
+    background-image: url('../assets/images/garden-background-raw.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #3E2E00;
+    padding: 2rem 5%;
 }
 
+/* The Floating Text Plaque */
+
+.hero-text-plaque {
+    background-color: rgba(250, 246, 235, 0.85); 
+    padding: 3.5rem 4rem;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(62, 46, 0, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px); 
+}
+
+/* Hero Typography */
+
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #6C0000; 
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: #006400;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: #006400;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-divider {
+    width: 80px;
+    height: 1px;
+    background-color: rgba(62, 46, 0, 0.3);
+    margin: 0 auto 2rem auto;
+}
+
+.hero-esd {
+    font-size: 0.85rem;
+    color: #006400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+}
 
 
 
@@ -395,35 +453,35 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
-/* Responsive adjustments */
 
 
 /* Responsive adjustments */
-
 @media (max-width: 768px) {
 
-    /* 1. Safety net: Prevents the page from ever scrolling horizontally */
-
+    /* Safety net: Prevents the page from ever scrolling horizontally */
     body {
         overflow-x: hidden;
     }
 
-    /* 2. Fixes the overflowing line divider creating the white space bug */
+    /* Fixes the overflowing line divider creating the white space bug */
     .header-divider {
         width: 80%; 
     }
 
-    /* 3. Forces the hero image to show full width without cropping (16:9 ratio) */
-    .hero-image {
-        height: 56.25vw; /* Exact math for a 1920x1080 image to scale perfectly */
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-        background-position: top center;
+    /* Adjusts the hero section for mobile screens */
+
+    .hero-section {
+        min-height: 60vh; 
+        background-position: center center;
+    }
+    
+    .hero-text-plaque {
+        width: 90%;
+        padding: 2.5rem 1.2rem;
     }
 
-    /* 4. Typography Adjustments */
-    .title {
-        font-size: 2rem;
+    .hero-title {
+        font-size: 2.2rem;
     }
 
     .inquiry-title {
@@ -435,10 +493,9 @@ h1, h2, h3 {
     }
     
     .manifesto-block p {
-        text-align: left; /* Prevents awkward word gaps on small screens */
+        text-align: left; 
     }
 
-    /* 5. Gallery Grid Adjustments */
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 4rem;
@@ -446,13 +503,9 @@ h1, h2, h3 {
     }
 
     .image-wrapper.frame {
-        padding: 6% 5%; /* Expands the aperture to show more of the photograph */
+        padding: 6% 5%; 
     }
 }
-
-
-
-
 
 
 
