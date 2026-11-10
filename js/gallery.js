@@ -1,11 +1,11 @@
 /**
- * THE LEAF SCULPTURE MUSEUM — CURATORIAL ENGINE (FIXED)
+ * THE LEAF SCULPTURE MUSEUM — 3-PAVILION ENGINE
  * Uses active Image() probing to bypass browser lazy-load deadlock on hidden slots.
  * Automatically checks .jpg, .JPG, .jpeg, and .png extensions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const MAX_EXHIBITS = 600;
+    const MAX_EXHIBITS = 500;
     const IMAGE_FOLDER = 'assets/images/';
     // Checks standard lowercase .jpg first, then common phone/camera fallbacks
     const EXTENSIONS = ['.jpg', '.JPG', '.jpeg', '.png'];
@@ -13,13 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.getElementById('gallery-grid');
     const liveExhibitCount = document.getElementById('live-exhibit-count');
 
-    const mountedSpecimens = []; // Stores { num, src }
+    const mountedSpecimens = []; // Stores { num, src, title, label }
     let currentLightboxPos = 0;
-    let activeFilterRange = 'all';
+    
+    // Default view is now Pavilion I (no more 'all' / Grand Hall)
+    let activeFilterRange = '1-300'; 
     let probesCompleted = 0;
 
     /* ======================================================================
-       1. CREATE 100 ORDERED SLOTS & PROBE IMAGES ACTIVELY
+       1. CREATE 500 ORDERED SLOTS & PROBE IMAGES ACTIVELY
        ====================================================================== */
     function initializeMuseumWall() {
         const fragment = document.createDocumentFragment();
@@ -52,28 +54,45 @@ document.addEventListener('DOMContentLoaded', () => {
         tester.onload = () => {
             const formattedNum = String(i).padStart(3, '0');
 
+            // --- INTELLIGENT PLAQUE NAMING SYSTEM ---
+            let collectionLabel = "";
+            let artTitle = "";
+
+            if (i <= 300) {
+                collectionLabel = "PAVILION I";
+                artTitle = "Art Form GUAVA";
+            } else if (i <= 400) {
+                collectionLabel = "PAVILION II"; 
+                artTitle = "Art Form HIBISCUS"; // <--- CHANGE THIS TO YOUR 2ND SUBJECT NAME
+            } else {
+                collectionLabel = "PAVILION III"; 
+                artTitle = "Art Form NANDHIYAVATTAI"; // <--- CHANGE THIS TO YOUR 3RD SUBJECT NAME
+            }
+            // ----------------------------------------
+
             itemSlot.innerHTML = `
                 <div class="image-wrapper frame">
                     <div class="art-container">
                         <img src="${candidateSrc}" 
-                             alt="Natural Leaf Sculpture Specimen #${formattedNum}">
+                             alt="${artTitle} Specimen #${formattedNum}">
                     </div>
                 </div>
                 <div class="wall-plaque-label">
-                    <span class="specimen-sub">EXHIBIT NO. ${formattedNum}</span>
-                    <p class="caption">Art Form #${i}</p>
+                    <span class="specimen-sub">${collectionLabel} &bull; NO. ${formattedNum}</span>
+                    <p class="caption">${artTitle} #${i}</p>
                 </div>
             `;
 
             itemSlot.dataset.mounted = 'true';
             itemSlot.dataset.src = candidateSrc;
 
-            // Show immediately if it matches the currently clicked Alcove button
+            // Show immediately if it matches the currently active Pavilion
             if (isWithinActiveRange(i)) {
                 itemSlot.style.display = 'flex';
             }
 
-            mountedSpecimens.push({ num: i, src: candidateSrc });
+            // Store the dynamic titles for the Lightbox
+            mountedSpecimens.push({ num: i, src: candidateSrc, title: artTitle, label: collectionLabel });
             mountedSpecimens.sort((a, b) => a.num - b.num);
 
             itemSlot.addEventListener('click', () => {
@@ -86,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tester.onerror = () => {
             if (extIndex === 0) {
-                // Only try fallback extensions if 1.jpg failed
                 probeSpecimenImage(i, extIndex + 1, itemSlot);
             } else {
                 probeSpecimenImage(i, extIndex + 1, itemSlot);
@@ -97,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function isWithinActiveRange(idx) {
-        if (activeFilterRange === 'all') return true;
+        if (!activeFilterRange || activeFilterRange === 'all') return true;
         const [min, max] = activeFilterRange.split('-').map(Number);
         return idx >= min && idx <= max;
     }
@@ -118,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 2rem; background: #faf6eb; border: 2px dashed #c59b27; max-width: 680px; margin: 0 auto;">
                     <h3 style="color: #6C0000; font-family: 'Playfair Display', serif; margin-bottom: 0.8rem;">No Exhibit Images Detected Yet</h3>
                     <p style="color: #2b231d; font-size: 0.95rem; margin-bottom: 0.6rem;">
-                        The museum looked for <strong><code>assets/images/1.jpg</code></strong> (up to <code>100.jpg</code>) relative to <code>index.html</code>, but could not find them.
+                        The museum looked for <strong><code>assets/images/1.jpg</code></strong> (up to <code>500.jpg</code>) relative to <code>index.html</code>, but could not find them.
                     </p>
                     <p style="color: #5C4B3B; font-size: 0.88rem;">
                         <strong>Quick Checklist:</strong><br>
@@ -158,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ======================================================================
-       3. ALCOVE RANGE FILTERING (Full Hall, 1-25, 26-50, 51-75, 76-100)
+       3. PAVILION RANGE FILTERING (1-300, 301-400, 401-500)
        ====================================================================== */
     const filterButtons = document.querySelectorAll('.filter-btn');
 
@@ -201,10 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderLightboxSpecimen() {
         const item = mountedSpecimens[currentLightboxPos];
         const formattedNum = String(item.num).padStart(3, '0');
+        
         lightboxImg.src = item.src;
-        lightboxImg.alt = `Natural Leaf Sculpture Specimen #${formattedNum}`;
-        lightboxCat.textContent = `SPECIMEN ARCHIVE NO. ${formattedNum}`;
-        lightboxCaption.textContent = `Art Form #${item.num}`;
+        lightboxImg.alt = `${item.title} Specimen #${formattedNum}`;
+        lightboxCat.textContent = `${item.label} ARCHIVE &bull; NO. ${formattedNum}`;
+        lightboxCaption.textContent = `${item.title} #${item.num}`;
     }
 
     function closeLightbox() {
@@ -214,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     btnClose.addEventListener('click', closeLightbox);
+    
     btnPrev.addEventListener('click', (e) => {
         e.stopPropagation();
         if (!mountedSpecimens.length) return;
