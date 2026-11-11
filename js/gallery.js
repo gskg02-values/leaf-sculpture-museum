@@ -5,7 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const MAX_EXHIBITS = 500;
+    const MAX_EXHIBITS = 800;
     const IMAGE_FOLDER = 'assets/images/';
     // Checks standard lowercase .jpg first, then common phone/camera fallbacks
     const EXTENSIONS = ['.jpg', '.JPG', '.jpeg', '.png'];
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let probesCompleted = 0;
 
     /* ======================================================================
-       1. CREATE 500 ORDERED SLOTS & PROBE IMAGES ACTIVELY
+       1. CREATE 800 ORDERED SLOTS & PROBE IMAGES ACTIVELY
        ====================================================================== */
     function initializeMuseumWall() {
         const fragment = document.createDocumentFragment();
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let collectionLabel = "";
             let artTitle = "";
 
-            if (i <= 300) {
+            if (i <= 400) {
                 collectionLabel = "PAVILION I";
                 artTitle = "Art Form GUAVA";
-            } else if (i <= 400) {
+            } else if (i <= 600) {
                 collectionLabel = "PAVILION II"; 
                 artTitle = "Art Form HIBISCUS"; // <--- CHANGE THIS TO YOUR 2ND SUBJECT NAME
             } else {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ======================================================================
-       3. PAVILION RANGE FILTERING (1-300, 301-400, 401-500)
+       3. PAVILION RANGE FILTERING (1-400, 401-600, 601-800)
        ====================================================================== */
     const filterButtons = document.querySelectorAll('.filter-btn');
 
