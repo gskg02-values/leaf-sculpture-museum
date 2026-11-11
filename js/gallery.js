@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         lightboxImg.src = item.src;
         lightboxImg.alt = `${item.title} Specimen #${formattedNum}`;
-        lightboxCat.textContent = `${item.label} ARCHIVE &bull; NO. ${formattedNum}`;
+	lightboxCat.innerHTML = `${item.label} ARCHIVE &bull; NO. ${formattedNum}`;
         lightboxCaption.textContent = `${item.title} #${item.num}`;
     }
 
